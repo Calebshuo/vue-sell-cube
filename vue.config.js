@@ -7,7 +7,7 @@ var ratings = appData.ratings;
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
-
+console.log(resolve('src/components'))
 module.exports = {
   css: {
     loaderOptions: {
@@ -52,7 +52,6 @@ module.exports = {
       .set('components', resolve('src/components'))
       .set('common', resolve('src/common'))
       .set('api', resolve('src/api'))
-    console.log(resolve('src/components'))
     // config.plugin('context')
     //   .use(webpack.ContextReplacementPlugin,
     //     [/moment[/\\]locale$/, /zh-cn/])
