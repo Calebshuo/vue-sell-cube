@@ -15,7 +15,10 @@
         :auto-play=false
         :show-dots=false
         :initial-index="index"
+        :options="slideOptions"
         ref="slide"
+        @change="onChange"
+        @scroll="onScroll"
       >
         <cube-slide-item>
           <goods></goods>
@@ -53,11 +56,11 @@
     data() {
       return {
         index: this.initialIndex,
-        // slideOptions: {
-        //   listenScroll: true,
-        //   probeType: 3,
-        //   directionLockThreshold: 0
-        // }
+        slideOptions: {
+          listenScroll: true,
+          probeType: 3,
+          directionLockThreshold: 0
+        },
         tabs: [
           {
             label: 'good'
@@ -85,19 +88,15 @@
       // this.onChange(this.index)
     },
     methods: {
-      // onScroll(pos) {
-      //   const tabBarWidth = this.$refs.tabBar.$el.clientWidth
-      //   const slideWidth = this.$refs.slide.slide.scrollerWidth
-      //   const transform = -pos.x / slideWidth * tabBarWidth
-      //   this.$refs.tabBar.setSliderTransform(transform)
-      // },
-      // onChange(current) {
-      //   this.index = current
-      //   const instance = this.$refs.component[current]
-      //   if (instance && instance.fetch) {
-      //     instance.fetch()
-      //   }
-      // }
+      onScroll(pos) {
+        const tabBarWidth = this.$refs.tabBar.$el.clientWidth
+        const slideWidth = this.$refs.slide.slide.scrollerWidth
+        const transform = -pos.x / slideWidth * tabBarWidth
+        this.$refs.tabBar.setSliderTransform(transform)
+      },
+      onChange(current) {
+        this.index = current
+      }
     },
     components: {
       Goods,
