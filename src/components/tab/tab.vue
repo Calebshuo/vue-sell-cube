@@ -20,14 +20,8 @@
         @change="onChange"
         @scroll="onScroll"
       >
-        <cube-slide-item>
-          <goods></goods>
-        </cube-slide-item>
-        <cube-slide-item>
-          <ratings></ratings>
-        </cube-slide-item>
-        <cube-slide-item>
-          <seller></seller>
+        <cube-slide-item v-for="(tab,index) in tabs" :key="index">
+          <component :is="tab.component" :data="tab.data"></component>
         </cube-slide-item>
       </cube-slide>
     </div>
@@ -35,19 +29,16 @@
 </template>
 
 <script>
-  import Goods from 'components/goods/goods'
-  import Ratings from 'components/ratings/ratings'
-  import Seller from 'components/seller/seller'
 
   export default {
     name: 'tab',
     props: {
-      // tabs: {
-      //   type: Array,
-      //   default() {
-      //     return []
-      //   }
-      // },
+      tabs: {
+        type: Array,
+        default() {
+          return []
+        }
+      },
       initialIndex: {
         type: Number,
         default: 0
@@ -60,16 +51,7 @@
           listenScroll: true,
           probeType: 3,
           directionLockThreshold: 0
-        },
-        tabs: [
-          {
-            label: 'good'
-          },{
-            label: 'ratings'
-          },{
-            label: 'seller11'
-          }
-        ]
+        }
       }
     },
     computed: {
@@ -97,11 +79,6 @@
       onChange(current) {
         this.index = current
       }
-    },
-    components: {
-      Goods,
-      Ratings,
-      Seller
     }
   }
 </script>
