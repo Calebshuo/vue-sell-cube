@@ -33,9 +33,9 @@
                   <span class="now">￥{{food.price}}</span>
                   <span class="old" v-show="food.oldPrice">￥{{food.oldPrice}}</span>
                 </div>
-                <!-- <div class="cart-control-wrapper">
+                <div class="cart-control-wrapper">
                   <cart-control @add="onAdd" :food="food"></cart-control>
-                </div> -->
+                </div>
               </div>
             </li>
           </ul>
@@ -45,6 +45,7 @@
     <div class="shop-cart-wrapper">
       <shop-cart
         ref="shopCart"
+        :select-foods="selectFoods"
         :delivery-price="seller.deliveryPrice"
         :min-price="seller.minPrice"
         ></shop-cart>
@@ -54,7 +55,7 @@
 
 <script>
   import { getGoods } from 'api'
-  // import CartControl from 'components/cart-control/cart-control'
+  import CartControl from 'components/cart-control/cart-control'
   import ShopCart from 'components/shop-cart/shop-cart'
   // import Food from 'components/food/food'
   // import SupportIco from 'components/support-ico/support-ico'
@@ -83,18 +84,18 @@
     computed: {
       seller() {
         return this.data
-      }
-      // selectFoods() {
-      //   let foods = []
-      //   this.goods.forEach((good) => {
-      //     good.foods.forEach((food) => {
-      //       if (food.count) {
-      //         foods.push(food)
-      //       }
-      //     })
-      //   })
-      //   return foods
-      // },
+      },
+      selectFoods() {
+        let foods = []
+        this.goods.forEach((good) => {
+          good.foods.forEach((food) => {
+            if (food.count) {
+              foods.push(food)
+            }
+          })
+        })
+        return foods
+      },
       // barTxts() {
       //   let ret = []
       //   this.goods.forEach((good) => {
@@ -165,7 +166,7 @@
     components: {
       // Bubble,
       // SupportIco,
-      // CartControl,
+      CartControl,
       ShopCart,
       // Food
     }

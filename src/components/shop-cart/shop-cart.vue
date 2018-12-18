@@ -7,9 +7,9 @@
             <div class="logo" :class="{'highlight':totalCount>0}">
               <i class="icon-shopping_cart" :class="{'highlight':totalCount>0}"></i>
             </div>
-            <!-- <div class="num" v-show="totalCount>0">
+            <div class="num" v-show="totalCount>0">
               <bubble :num="totalCount"></bubble>
-            </div> -->
+            </div>
           </div>
           <div class="price" :class="{'highlight':totalPrice>0}">￥{{totalPrice}}</div>
           <div class="desc">另需配送费￥{{deliveryPrice}}元</div>
@@ -37,7 +37,7 @@
 </template>
 
 <script>
-  // import Bubble from 'components/bubble/bubble'
+  import Bubble from 'components/bubble/bubble'
 
   const BALL_LEN = 10
   const innerClsHook = 'inner-hook'
@@ -225,10 +225,10 @@
           this._hideShopCartList()
         }
       }
+    },
+    components: {
+      Bubble
     }
-    // components: {
-    //   Bubble
-    // }
   }
 </script>
 
