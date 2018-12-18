@@ -42,20 +42,20 @@
         </cube-scroll-nav-panel>
       </cube-scroll-nav>
     </div>
-    <!-- <div class="shop-cart-wrapper">
+    <div class="shop-cart-wrapper">
       <shop-cart
         ref="shopCart"
-        :select-foods="selectFoods"
         :delivery-price="seller.deliveryPrice"
-        :min-price="seller.minPrice"></shop-cart>
-    </div> -->
+        :min-price="seller.minPrice"
+        ></shop-cart>
+    </div>
   </div>
 </template>
 
 <script>
   import { getGoods } from 'api'
   // import CartControl from 'components/cart-control/cart-control'
-  // import ShopCart from 'components/shop-cart/shop-cart'
+  import ShopCart from 'components/shop-cart/shop-cart'
   // import Food from 'components/food/food'
   // import SupportIco from 'components/support-ico/support-ico'
   // import Bubble from 'components/bubble/bubble'
@@ -81,9 +81,9 @@
       }
     },
     computed: {
-      // seller() {
-      //   return this.data.seller
-      // },
+      seller() {
+        return this.data
+      }
       // selectFoods() {
       //   let foods = []
       //   this.goods.forEach((good) => {
@@ -161,14 +161,14 @@
       _hideShopCartSticky() {
         this.shopCartStickyComp.hide()
       }
+    },
+    components: {
+      // Bubble,
+      // SupportIco,
+      // CartControl,
+      ShopCart,
+      // Food
     }
-    // components: {
-    //   Bubble,
-    //   SupportIco,
-    //   CartControl,
-    //   ShopCart,
-    //   Food
-    // }
   }
 </script>
 
