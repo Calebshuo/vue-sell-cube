@@ -125,6 +125,7 @@
           if (!this.totalCount) {
             return
           }
+          // debugger;
           this.listFold = false
           this._showShopCartList()
           this._showShopCartSticky()
@@ -218,9 +219,10 @@
       }
     },
     watch: {
-      fold(newVal) {
-        this.listFold = newVal
-      },
+      // fold(newVal) {
+      //   debugger;
+      //   this.listFold = newVal
+      // },
       totalCount(count) {
         if (!this.fold && count === 0) {
           this._hideShopCartList()
