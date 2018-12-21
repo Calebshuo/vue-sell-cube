@@ -84,6 +84,7 @@
     },
     created() {
       this.dropBalls = []
+      this.listFold = true
     },
     computed: {
       totalPrice() {
