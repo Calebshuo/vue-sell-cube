@@ -74,11 +74,11 @@
         this.$emit(EVENT_LEAVE)
       },
       maskClick() {
-        console.log(this)
+        // console.log(this)
         this.hide()
       },
       empty() {
-        this.dialogComp = this.$createDialog({
+        this.dialogComp = this.$createDialog({  // 单例模式的定义是：保证一个类仅有一个实例，并提供一个访问它的全局访问点。
           type: 'confirm',
           content: '清空购物车？',
           $events: {
@@ -89,8 +89,7 @@
               this.hide()
             }
           }
-        })
-        this.dialogComp.show()
+        }).show()
       }
     },
     components: {

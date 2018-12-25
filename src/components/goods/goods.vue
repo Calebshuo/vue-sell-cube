@@ -137,7 +137,7 @@
     methods: {
       fetch() {
         if (!this.fetched) {
-          this.fetched = true
+          this.fetched = true // 避免tab组件中onChange方法重新初始化（重新获取goods，set的count属性消失）
           getGoods({
             // id: this.seller.id
           }).then((goods) => {

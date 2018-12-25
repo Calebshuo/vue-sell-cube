@@ -186,9 +186,11 @@
           },
           $events: {
             leave: () => {
+              // debugger;
               this._hideShopCartSticky()
             },
             hide: () => {
+              // debugger; emit之后的回调
               this.listFold = true
             },
             add: (el) => {
@@ -199,6 +201,7 @@
         this.shopCartListComp.show()
       },
       _showShopCartSticky() {
+        // console.log(this.shopCartStickyComp)
         this.shopCartStickyComp = this.shopCartStickyComp || this.$createShopCartSticky({
           $props: {
             selectFoods: 'selectFoods',
@@ -219,10 +222,10 @@
       }
     },
     watch: {
-      // fold(newVal) {
-      //   debugger;
-      //   this.listFold = newVal
-      // },
+      fold(newVal) {
+        // debugger;
+        this.listFold = newVal // sticky中listfold被传入的fold控制着
+      },
       totalCount(count) {
         if (!this.fold && count === 0) {
           this._hideShopCartList()
