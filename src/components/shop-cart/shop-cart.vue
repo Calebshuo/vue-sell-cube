@@ -222,9 +222,12 @@
       }
     },
     watch: {
+      /**
+       * sticky中listfold被传入的fold控制着
+       */
       fold(newVal) {
         // debugger;
-        this.listFold = newVal // sticky中listfold被传入的fold控制着
+        this.listFold = newVal
       },
       totalCount(count) {
         if (!this.fold && count === 0) {

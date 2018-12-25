@@ -78,7 +78,7 @@
   import { getGoods } from 'api'
   import CartControl from 'components/cart-control/cart-control'
   import ShopCart from 'components/shop-cart/shop-cart'
-  // import Food from 'components/food/food'
+  import Food from 'components/food/food'
   import SupportIco from 'components/support-ico/support-ico'
   import Bubble from 'components/bubble/bubble'
 
@@ -135,9 +135,12 @@
       }
     },
     methods: {
+      /**
+       * 避免tab组件中onChange方法重新初始化（重新获取goods，set的count属性消失）
+       */
       fetch() {
         if (!this.fetched) {
-          this.fetched = true // 避免tab组件中onChange方法重新初始化（重新获取goods，set的count属性消失）
+          this.fetched = true
           getGoods({
             // id: this.seller.id
           }).then((goods) => {
@@ -189,7 +192,7 @@
       SupportIco,
       CartControl,
       ShopCart,
-      // Food
+      Food
     }
   }
 </script>
