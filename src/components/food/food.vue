@@ -38,15 +38,15 @@
           <split></split>
           <div class="rating">
             <h1 class="title">商品评价</h1>
-            <!-- <rating-select
+            <rating-select
               @select="onSelect"
               @toggle="onToggle"
               :selectType="selectType"
               :onlyContent="onlyContent"
               :desc="desc"
               :ratings="ratings">
-            </rating-select> -->
-            <!-- <div class="rating-wrapper">
+            </rating-select>
+            <div class="rating-wrapper">
               <ul v-show="computedRatings && computedRatings.length">
                 <li
                   v-for="(rating,index) in computedRatings"
@@ -64,7 +64,7 @@
                 </li>
               </ul>
               <div class="no-rating" v-show="!computedRatings || !computedRatings.length">暂无评价</div>
-            </div> -->
+            </div>
           </div>
         </div>
       </cube-scroll>
@@ -75,9 +75,9 @@
 <script type="text/ecmascript-6">
   import moment from 'moment'
   import CartControl from 'components/cart-control/cart-control'
-  // import RatingSelect from 'components/rating-select/rating-select'
+  import RatingSelect from 'components/rating-select/rating-select'
   import Split from 'components/split/split'
-  // import ratingMixin from 'common/mixins/rating'
+  import ratingMixin from 'common/mixins/rating'
   import popupMixin from 'common/mixins/popup'
 
   const EVENT_SHOW = 'show'
@@ -86,7 +86,7 @@
 
   export default {
     name: 'food',
-    mixins: [popupMixin],
+    mixins: [ratingMixin, popupMixin],
     props: {
       food: {
         type: Object
@@ -130,7 +130,7 @@
     },
     components: {
       CartControl,
-      // RatingSelect,
+      RatingSelect,
       Split
     }
   }
