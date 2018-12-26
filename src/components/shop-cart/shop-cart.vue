@@ -84,7 +84,6 @@
     },
     created() {
       this.dropBalls = []
-      this.listFold = true
     },
     computed: {
       totalPrice() {
@@ -120,12 +119,11 @@
       }
     },
     methods: {
-      toggleList() {
+      toggleList() {     
         if (this.listFold) {
           if (!this.totalCount) {
             return
           }
-          // debugger;
           this.listFold = false
           this._showShopCartList()
           this._showShopCartSticky()
@@ -201,6 +199,7 @@
         this.shopCartListComp.show()
       },
       _showShopCartSticky() {
+        console.log(this.listFold)
         // console.log(this.shopCartStickyComp)
         this.shopCartStickyComp = this.shopCartStickyComp || this.$createShopCartSticky({
           $props: {
@@ -226,7 +225,6 @@
        * sticky中listfold被传入的fold控制着
        */
       fold(newVal) {
-        // debugger;
         this.listFold = newVal
       },
       totalCount(count) {

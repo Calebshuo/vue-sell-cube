@@ -36,7 +36,7 @@
       },
       fold: {
         type: Boolean,
-        default: true
+        default: false
       },
       list: {
         type: Object,
@@ -52,6 +52,10 @@
     },
     components: {
       ShopCart
+    },
+    watch: {
+      fold(newVal) {
+      },
     }
   }
 </script>
