@@ -7,7 +7,8 @@ var ratings = appData.ratings;
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
-console.log(resolve('src/components'))
+console.log('##########resolve', resolve('src/components'))
+
 module.exports = {
   css: {
     loaderOptions: {
@@ -28,9 +29,11 @@ module.exports = {
   devServer: {
     before(app) {
       app.get('/api/seller', function (req, res) {
+        const id = req.query.id
+        // console.log('#####req', req)
         res.json({
           errno: 0,
-          data: seller
+          data: Object.assign({}, seller, {id})
         })
       })
       app.get('/api/goods', function (req, res) {
