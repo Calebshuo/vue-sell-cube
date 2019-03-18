@@ -32,7 +32,7 @@ router.get('/ratings', function (req, res) {
 
 app.use('/api', router)
 
-app.use(express.static('./dist'))
+app.use(express.static('./dist')) // 代理dist文件（打包后的文件）下的静态资源
 
 const port = process.env.PORT || 8900
 

@@ -48,8 +48,9 @@ export default {
   created() {
     this._getSeller()
   },
-  methods: {
+  methods: {  
     _getSeller() {
+      console.log(this.seller.id)
       getSeller(
         {
           id: this.seller.id
